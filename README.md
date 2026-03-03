@@ -58,7 +58,7 @@ co2-emissions-rwanda/
 │       ├── models_builders.py          # Pipeline & stacking model factory functions
 │       └── hpo_tuner.py                # Optuna HPO objective & study runner
 ├── notebooks/
-│   └── eda_co2_rwanda.ipynb            # Exploratory Data Analysis (11 sections)
+│   └── eda_co2_rwanda.ipynb            # Exploratory Data Analysis
 ├── main.py                             # Entry point: optimize → fit → predict → submit
 └── README.md
 ```
@@ -72,17 +72,16 @@ co2-emissions-rwanda/
 Each base model is wrapped in a unified `sklearn.Pipeline` with these steps in order:
 
 | Step | Transformer | What it does |
-|---|---|---|
-| 1 | `DropIdColumns` | Removes `ID_LAT_LON_YEAR_WEEK` identifier |
-| 2 | `TemporalFeatureTransformer` | `month`, `season`, `week_sin/cos`, `month_sin/cos`, `is_dry_season`, `year_normalized` |
-| 3 | `SpatialFeatureTransformer` | `lat_bin`, `lon_bin`, `location_id_enc` (integer-encoded lat/lon key) |
-| 4 | `PollutantRatioTransformer` | `NO2/SO2`, `CO/NO2`, `HCHO/NO2` ratios; `total_pollutant_load`, `cloud_mean` |
-| 5 | `LocationStatsTransformer` | Per-location median & std for key emission columns — **fit on train only** |
-| 6 | `LogTransformer` | `log1p` on the 5 most skewed concentration columns |
-| 7 | `DropStringColumns` | Removes residual object columns after encoding |
-| 8 | `SensorImputer` | Median imputation for satellite NaN gaps (orbital misses, clouds) |
-| 9 | `StandardScaler` | Zero-mean, unit-variance normalisation |
-| 10 | `TransformedTargetRegressor` | `log1p` on target at train time, `expm1` at predict time |
+|------|---|---|
+| 1    | `DropIdColumns` | Removes `ID_LAT_LON_YEAR_WEEK` identifier |
+| 2    | `TemporalFeatureTransformer` | `month`, `season`, `week_sin/cos`, `month_sin/cos`, `is_dry_season`, `year_normalized` |
+| 3    | `SpatialFeatureTransformer` | `lat_bin`, `lon_bin`, `location_id_enc` (integer-encoded lat/lon key) |
+| 4    | `PollutantRatioTransformer` | `NO2/SO2`, `CO/NO2`, `HCHO/NO2` ratios; `total_pollutant_load`, `cloud_mean` |
+| 5    | `LocationStatsTransformer` | Per-location median & std for key emission columns — **fit on train only** |
+| 6    | `DropStringColumns` | Removes residual object columns after encoding |
+| 7    | `SensorImputer` | Median imputation for satellite NaN gaps (orbital misses, clouds) |
+| 8    | `StandardScaler` | Zero-mean, unit-variance normalisation |
+| 9    | `TransformedTargetRegressor` | `log1p` on target at train time, `expm1` at predict time |
 
 ### 2 — Stacking Ensemble
 
@@ -101,7 +100,7 @@ A `StackingRegressor` combines six base learners, each with its own independent 
 
 All base model hyperparameters are tuned with **Optuna**:
 
-- **300 trials** per base model
+- **50 trials** per base model
 - **5-fold cross-validation** with `neg_root_mean_squared_error` objective
 - **TPE sampler** with `MedianPruner` to terminate unpromising trials early
 - Search spaces defined in `model_config.yaml` (IntUniform, LogUniform, Uniform, Categorical)
