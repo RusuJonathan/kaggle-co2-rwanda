@@ -1,0 +1,199 @@
+# ── Identifiers (dropped before modelling) ───────────────────────────────────
+ID_COLS:
+  - ID_LAT_LON_YEAR_WEEK
+
+# ── Raw temporal columns ──────────────────────────────────────────────────────
+TEMPORAL_COLS:
+  - year
+  - week_no
+
+# ── Spatial columns ───────────────────────────────────────────────────────────
+SPATIAL_COLS:
+  - latitude
+  - longitude
+
+# ── Sentinel-5P atmospheric measurements (all numerical, may contain NaN) ────
+#    Sulphur Dioxide  ─ L3_SO2
+SO2_COLS:
+  - SulphurDioxide_SO2_column_number_density
+  - SulphurDioxide_SO2_column_number_density_amf
+  - SulphurDioxide_SO2_slant_column_number_density
+  - SulphurDioxide_cloud_fraction
+  - SulphurDioxide_sensor_azimuth_angle
+  - SulphurDioxide_sensor_zenith_angle
+  - SulphurDioxide_solar_azimuth_angle
+  - SulphurDioxide_solar_zenith_angle
+  - SulphurDioxide_SO2_column_number_density_15km
+
+#    Carbon Monoxide  ─ L3_CO
+CO_COLS:
+  - CarbonMonoxide_CO_column_number_density
+  - CarbonMonoxide_H2O_column_number_density
+  - CarbonMonoxide_cloud_height
+  - CarbonMonoxide_sensor_altitude
+  - CarbonMonoxide_sensor_azimuth_angle
+  - CarbonMonoxide_sensor_zenith_angle
+  - CarbonMonoxide_solar_azimuth_angle
+  - CarbonMonoxide_solar_zenith_angle
+
+#    Nitrogen Dioxide  ─ L3_NO2
+NO2_COLS:
+  - NitrogenDioxide_NO2_column_number_density
+  - NitrogenDioxide_tropospheric_NO2_column_number_density
+  - NitrogenDioxide_stratospheric_NO2_column_number_density
+  - NitrogenDioxide_NO2_slant_column_number_density
+  - NitrogenDioxide_tropopause_pressure
+  - NitrogenDioxide_absorbing_aerosol_index
+  - NitrogenDioxide_cloud_fraction
+  - NitrogenDioxide_sensor_altitude
+  - NitrogenDioxide_sensor_azimuth_angle
+  - NitrogenDioxide_sensor_zenith_angle
+  - NitrogenDioxide_solar_azimuth_angle
+  - NitrogenDioxide_solar_zenith_angle
+
+#    Formaldehyde  ─ L3_HCHO
+HCHO_COLS:
+  - Formaldehyde_tropospheric_HCHO_column_number_density
+  - Formaldehyde_tropospheric_HCHO_column_number_density_amf
+  - Formaldehyde_HCHO_slant_column_number_density
+  - Formaldehyde_cloud_fraction
+  - Formaldehyde_solar_zenith_angle
+  - Formaldehyde_solar_azimuth_angle
+  - Formaldehyde_sensor_zenith_angle
+  - Formaldehyde_sensor_azimuth_angle
+
+#    UV Aerosol Index  ─ L3_AER_AI
+AER_COLS:
+  - UvAerosolIndex_absorbing_aerosol_index
+  - UvAerosolIndex_sensor_altitude
+  - UvAerosolIndex_sensor_azimuth_angle
+  - UvAerosolIndex_sensor_zenith_angle
+  - UvAerosolIndex_solar_azimuth_angle
+  - UvAerosolIndex_solar_zenith_angle
+
+#    Ozone  ─ L3_O3
+O3_COLS:
+  - Ozone_O3_column_number_density
+  - Ozone_O3_effective_temperature
+  - Ozone_cloud_fraction
+  - Ozone_sensor_azimuth_angle
+  - Ozone_sensor_zenith_angle
+  - Ozone_solar_azimuth_angle
+  - Ozone_solar_zenith_angle
+
+#    Cloud  ─ L3_CLOUD
+CLOUD_COLS:
+  - Cloud_cloud_fraction
+  - Cloud_cloud_top_pressure
+  - Cloud_cloud_top_height
+  - Cloud_cloud_base_pressure
+  - Cloud_cloud_base_height
+  - Cloud_cloud_optical_depth
+  - Cloud_surface_albedo
+  - Cloud_sensor_azimuth_angle
+  - Cloud_sensor_zenith_angle
+  - Cloud_solar_azimuth_angle
+  - Cloud_solar_zenith_angle
+
+# ── Master list of ALL numerical sensor features (used in imputation) ─────────
+ALL_SENSOR_COLS:
+  - SulphurDioxide_SO2_column_number_density
+  - SulphurDioxide_SO2_column_number_density_amf
+  - SulphurDioxide_SO2_slant_column_number_density
+  - SulphurDioxide_cloud_fraction
+  - SulphurDioxide_sensor_azimuth_angle
+  - SulphurDioxide_sensor_zenith_angle
+  - SulphurDioxide_solar_azimuth_angle
+  - SulphurDioxide_solar_zenith_angle
+  - SulphurDioxide_SO2_column_number_density_15km
+  - CarbonMonoxide_CO_column_number_density
+  - CarbonMonoxide_H2O_column_number_density
+  - CarbonMonoxide_cloud_height
+  - CarbonMonoxide_sensor_altitude
+  - CarbonMonoxide_sensor_azimuth_angle
+  - CarbonMonoxide_sensor_zenith_angle
+  - CarbonMonoxide_solar_azimuth_angle
+  - CarbonMonoxide_solar_zenith_angle
+  - NitrogenDioxide_NO2_column_number_density
+  - NitrogenDioxide_tropospheric_NO2_column_number_density
+  - NitrogenDioxide_stratospheric_NO2_column_number_density
+  - NitrogenDioxide_NO2_slant_column_number_density
+  - NitrogenDioxide_tropopause_pressure
+  - NitrogenDioxide_absorbing_aerosol_index
+  - NitrogenDioxide_cloud_fraction
+  - NitrogenDioxide_sensor_altitude
+  - NitrogenDioxide_sensor_azimuth_angle
+  - NitrogenDioxide_sensor_zenith_angle
+  - NitrogenDioxide_solar_azimuth_angle
+  - NitrogenDioxide_solar_zenith_angle
+  - Formaldehyde_tropospheric_HCHO_column_number_density
+  - Formaldehyde_tropospheric_HCHO_column_number_density_amf
+  - Formaldehyde_HCHO_slant_column_number_density
+  - Formaldehyde_cloud_fraction
+  - Formaldehyde_solar_zenith_angle
+  - Formaldehyde_solar_azimuth_angle
+  - Formaldehyde_sensor_zenith_angle
+  - Formaldehyde_sensor_azimuth_angle
+  - UvAerosolIndex_absorbing_aerosol_index
+  - UvAerosolIndex_sensor_altitude
+  - UvAerosolIndex_sensor_azimuth_angle
+  - UvAerosolIndex_sensor_zenith_angle
+  - UvAerosolIndex_solar_azimuth_angle
+  - UvAerosolIndex_solar_zenith_angle
+  - Ozone_O3_column_number_density
+  - Ozone_O3_effective_temperature
+  - Ozone_cloud_fraction
+  - Ozone_sensor_azimuth_angle
+  - Ozone_sensor_zenith_angle
+  - Ozone_solar_azimuth_angle
+  - Ozone_solar_zenith_angle
+  - Cloud_cloud_fraction
+  - Cloud_cloud_top_pressure
+  - Cloud_cloud_top_height
+  - Cloud_cloud_base_pressure
+  - Cloud_cloud_base_height
+  - Cloud_cloud_optical_depth
+  - Cloud_surface_albedo
+  - Cloud_sensor_azimuth_angle
+  - Cloud_sensor_zenith_angle
+  - Cloud_solar_azimuth_angle
+  - Cloud_solar_zenith_angle
+
+# ── Key emission-proxy features (subset used for ratio / interaction features) ─
+KEY_EMISSION_COLS:
+  - SulphurDioxide_SO2_column_number_density
+  - CarbonMonoxide_CO_column_number_density
+  - NitrogenDioxide_NO2_column_number_density
+  - NitrogenDioxide_tropospheric_NO2_column_number_density
+  - Formaldehyde_tropospheric_HCHO_column_number_density
+  - UvAerosolIndex_absorbing_aerosol_index
+  - Ozone_O3_column_number_density
+
+# ── New engineered features (documented for reference) ────────────────────────
+ENGINEERED_TEMPORAL:
+  - month
+  - season
+  - week_sin
+  - week_cos
+  - month_sin
+  - month_cos
+  - is_dry_season       # Rwanda dry season: Jun-Sep
+
+ENGINEERED_SPATIAL:
+  - lat_bin             # Discretised latitude cluster
+  - lon_bin             # Discretised longitude cluster
+  - location_id         # Composite lat/lon key
+
+ENGINEERED_RATIOS:
+  - NO2_SO2_ratio
+  - CO_NO2_ratio
+  - HCHO_NO2_ratio
+  - total_pollutant_load
+  - cloud_mean
+
+LOG_FEATURES:
+  - SulphurDioxide_SO2_column_number_density
+  - CarbonMonoxide_CO_column_number_density
+  - NitrogenDioxide_NO2_column_number_density
+  - NitrogenDioxide_tropospheric_NO2_column_number_density
+  - Formaldehyde_tropospheric_HCHO_column_number_density

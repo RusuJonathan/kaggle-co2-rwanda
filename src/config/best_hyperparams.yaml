@@ -1,0 +1,39 @@
+catboost:
+  bagging_temperature: 0.5873758507602947
+  colsample_bylevel: 0.4446906776263423
+  depth: 8
+  iterations: 1829
+  l2_leaf_reg: 13.45652939114112
+  learning_rate: 0.1831803658835779
+  random_strength: 2.5048727757834457
+elasticnet:
+  alpha: 0.49211131131017993
+  l1_ratio: 0.7888497678625307
+lgbm:
+  colsample_bytree: 0.4028666769180029
+  learning_rate: 0.010391472189137925
+  max_depth: 9
+  min_child_samples: 27
+  min_child_weight: 14.262513309737825
+  n_estimators: 1461
+  num_leaves: 154
+  reg_alpha: 1.1335780704054645
+  reg_lambda: 1.7219115972123034
+  subsample: 0.9040312288861847
+random_forest:
+  max_depth: 11
+  max_features: log2
+  max_samples: 0.7243450719592102
+  min_samples_leaf: 10
+  min_samples_split: 14
+  n_estimators: 889
+xgboost:
+  colsample_bytree: 0.4284532802744494
+  gamma: 0.9982242156873192
+  learning_rate: 0.0051940628604674665
+  max_depth: 7
+  min_child_weight: 11
+  n_estimators: 1067
+  reg_alpha: 0.09388996775336214
+  reg_lambda: 0.3762133179303709
+  subsample: 0.9053659514617901
