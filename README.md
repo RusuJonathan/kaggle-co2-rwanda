@@ -1,14 +1,11 @@
-# 🌍 Predict CO₂ Emissions in Rwanda
+# Predict CO₂ Emissions in Rwanda
 
-[![Kaggle](https://img.shields.io/badge/Kaggle-PS3E20-blue?logo=kaggle)](https://www.kaggle.com/competitions/playground-series-s3e20)
-[![Data](https://img.shields.io/badge/Data-Sentinel--5P%20Satellite-orange)](https://developers.google.com/earth-engine/datasets/catalog/sentinel-5p)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 > Stacking ensemble with Optuna hyperparameter optimisation trained on **ESA Sentinel-5P satellite observations** to predict weekly CO₂ emissions across Rwanda (2019–2022).
 
 ---
 
-## 📊 Results
+## Results
 
 | Metric | Score              |
 |---|--------------------|
@@ -17,7 +14,7 @@
 
 ---
 
-## 🛰️ Problem & Context
+## Problem & Context
 
 Accurate carbon monitoring is critical for climate policy and energy transition planning. Ground-based sensors are sparse across Africa, making satellite-derived estimates essential. This project uses open-source data from the **TROPOMI instrument aboard Sentinel-5P**
 
@@ -35,7 +32,7 @@ Each observation represents a **geographic cell × week × year** combination wi
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 co2-emissions-rwanda/
@@ -65,7 +62,7 @@ co2-emissions-rwanda/
 
 ---
 
-## 🧠 Approach
+## Approach
 
 ### 1 — Preprocessing Pipeline
 
@@ -121,7 +118,7 @@ All base model hyperparameters are tuned with **Optuna**:
 
 ---
 
-## 📦 Dependencies
+## Dependencies
 
 Managed with **Poetry** (`pyproject.toml`):
 
@@ -133,7 +130,7 @@ matplotlib  seaborn  scipy  shap
 
 ---
 
-## 📓 EDA Highlights
+## EDA Highlights
 
 Key findings from `notebooks/eda_co2_rwanda.ipynb` (11 sections):
 
@@ -142,8 +139,4 @@ Key findings from `notebooks/eda_co2_rwanda.ipynb` (11 sections):
 - Strong **spatial clustering** — some geographic zones persistently emit 3–5× more than others
 - **Pollutant ratios** (NO₂/SO₂, CO/NO₂) carry information independent of raw concentrations
 
----
 
-## 📄 License
-
-This project is licensed under the MIT License.
