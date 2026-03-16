@@ -109,7 +109,6 @@ class SensorImputer(BaseEstimator, TransformerMixin):
     """
     Applies median imputation to all remaining numerical columns.
     Wrapped as a custom transformer to preserve pandas column names
-    (sklearn set_config transform_output='pandas' must be active)
     """
 
     def __init__(self, strategy: str = "median"):

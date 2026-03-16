@@ -39,9 +39,8 @@ def add_temporal_features(df: pd.DataFrame) -> pd.DataFrame:
 
 def add_spatial_features(df: pd.DataFrame, n_bins: int = 10) -> pd.DataFrame:
     """
-    Discretises latitude and longitude into bins and creates a composite
-    location_id string key. This lets tree models learn zone-level emission
-    patterns without needing geo-distance calculations.
+    Bins latitude and longitude and creates a location_id encoding
+    so tree models can pick up zone-level patterns.
     """
     df = df.copy()
 
@@ -58,13 +57,8 @@ def add_spatial_features(df: pd.DataFrame, n_bins: int = 10) -> pd.DataFrame:
 
 def add_ratio_features(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Creates physically-motivated ratios between pollutants.
-
-    - NO2/SO2  : distinguishes traffic (NO2) from industrial (SO2) sources
-    - CO/NO2   : combustion completeness proxy
-    - HCHO/NO2 : VOC oxidation indicator, relevant to ozone formation
-    - total_pollutant_load : sum of key emission proxies (normalised)
-    - cloud_mean : average cloud fraction across sensors (data quality proxy)
+    Adds pollutant ratio features (NO2/SO2, CO/NO2, HCHO/NO2),
+    total pollutant load, and average cloud fraction across sensors.
     """
     df = df.copy()
 
